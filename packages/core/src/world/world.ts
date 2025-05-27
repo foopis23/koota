@@ -307,7 +307,7 @@ export class World {
 }
 
 // Clean up the world ID when it is garbage collected.
-const worldFinalizer = new FinalizationRegistry((worldId: number) => {
+export const worldFinalizer = new FinalizationRegistry((worldId: number) => {
 	universe.worlds[worldId] = null;
 	releaseWorldId(universe.worldIndex, worldId);
 });
